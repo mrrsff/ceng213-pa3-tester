@@ -1,1 +1,1 @@
-Put BinaryHeap.cpp and MeshGraph.cpp to "your_code" directory. Unzip the answer and obj files. Then run tester.py.
+Put BinaryHeap.cpp and MeshGraph.cpp to "your_code" directory. Unzip the answer and obj files, don't forget to delete .zip files after you've unzipped them. Then run tester.py.
