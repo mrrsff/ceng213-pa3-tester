@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int main(int argv, char** argc){
+int main(int argc, char **argv){
     // get all obj files in the folder
     string command = "ls ./objects > temp1.txt";
     system(command.c_str());

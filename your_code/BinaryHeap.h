@@ -25,6 +25,4 @@ class BinaryHeap
         bool                PopHeap(int& outUniqueId, double& outWeight);
         bool                ChangePriority(int uniqueId, double newWeight);
         int                 HeapSize() const;
-        void                PrintHeap();
-        bool                checkHeap();
 };
