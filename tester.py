@@ -8,11 +8,18 @@ def get_objs():
     objs = [i for i in files if i.endswith('.obj')]
     return objs
 
+print("Checking for your code...")
+needed_files = ["BinaryHeap.cpp","MeshGraph.cpp"]
+for i in needed_files:
+    if not os.path.exists(f".\\your_code\\{i}"):
+        print(f"Missing {i}")
+        exit()
 
 print("Compiling...")
 os.system("g++ -o test.exe main.cpp")
 objs = get_objs()
 
+print("Cleaning up...")
 while(os.listdir(".\\output")):
     os.remove(os.path.join(".\\output",os.listdir(".\\output")[0]))
 
@@ -32,7 +39,7 @@ for i in range(len(objs)):
         print(f"Object {i+1}/{len(objs)} failed")
 
 print(f"{passed}/{len(objs)} passed")
-print("Cleaning up...")
-os.system("del test.exe")
+print("Proposed score: ",passed/len(objs)*100)
+os.system("rm test.exe")
 if passed!=len(objs):
     print("You can find the wrong output files in the output folder")
