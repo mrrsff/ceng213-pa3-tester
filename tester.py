@@ -20,15 +20,16 @@ os.system("g++ -o test.exe main.cpp")
 objs = get_objs()
 
 print("Cleaning up...")
-while(Path("./output").glob("*")):
-      os.remove(Path("./output").glob("*")[0])
+while(os.listdir("./output")):
+    for i in os.listdir("./output"):
+        os.remove(Path(f"./output/{i}"))
 
 print("Testing begins...")    
 passed = 0
 for i in range(len(objs)):
     if(Path(f"./output/object{i}.txt").exists()):
         os.remove(Path(f"./output/object{i}.txt"))
-    subprocess.run("test.exe >>" + Path(f"./output/object{i}.txt") ,shell=True, input=bytes(str(i),encoding='utf-8'))
+    subprocess.run("test.exe >>" + str(Path(f"./output/object{i}.txt")) ,shell=True, input=bytes(str(i),encoding='utf-8'))
     truth = filecmp.cmp(Path("./answers/answer{i}.txt"),Path(f"./output/object{i}.txt"))
     if truth:
         print(f"Object {i+1}/{len(objs)} passed")
