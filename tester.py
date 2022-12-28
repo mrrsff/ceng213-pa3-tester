@@ -15,8 +15,9 @@ for i in needed_files:
         print(f"Missing {i}")
         exit()
 
+output_name = "test.exe"
 print("Compiling...")
-os.system("g++ -o test.exe main.cpp")
+os.system(f"g++ -o {output_name} main.cpp")
 objs = get_objs()
 
 print("Cleaning up...")
@@ -29,8 +30,8 @@ passed = 0
 for i in range(len(objs)):
     if(Path(f"./output/object{i}.txt").exists()):
         os.remove(Path(f"./output/object{i}.txt"))
-    subprocess.run("test.exe >>" + str(Path(f"./output/object{i}.txt")) ,shell=True, input=bytes(str(i),encoding='utf-8'))
-    truth = filecmp.cmp(Path("./answers/answer{i}.txt"),Path(f"./output/object{i}.txt"))
+    subprocess.run(f"{output_name} >>" + str(Path(f"./output/object{i}.txt")) ,shell=True, input=bytes(str(i),encoding='utf-8'))
+    truth = filecmp.cmp(Path(f"./answers/answer{i}.txt"),Path(f"./output/object{i}.txt"))
     if truth:
         print(f"Object {i+1}/{len(objs)} passed")
         os.remove(Path(f"./output/object{i}.txt"))
