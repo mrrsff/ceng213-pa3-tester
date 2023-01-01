@@ -11,7 +11,7 @@ def get_objs():
 print("Checking for your code...")
 needed_files = ["BinaryHeap.cpp","MeshGraph.cpp"]
 for i in needed_files:
-    if not Path(f"./your_code/{i}").exists():
+    if not os.path.exists(Path(f"./your_code/{i}")):
         print(f"Missing {i}")
         exit()
 
@@ -21,10 +21,13 @@ os.system(f"g++ -o {output_name} main.cpp")
 objs = get_objs()
 
 print("Cleaning up...")
-while(os.listdir(Path("./output"))):
-    for i in os.listdir(Path("./output")):
-        os.remove(Path(f"./output/{i}"))
-
+if(os.path.exists(Path("./output"))):
+    while(os.listdir(Path("./output"))):
+        for i in os.listdir(Path("./output")):
+            os.remove(Path(f"./output/{i}"))
+else:
+    os.mkdir(Path("./output"))
+    
 print("Testing begins...")    
 passed = 0
 for i in range(len(objs)):
