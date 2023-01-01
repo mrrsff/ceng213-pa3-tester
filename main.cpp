@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, char **argv){
     // get all obj files in the folder
-    string command = "ls ./objects > temp1.txt";
+    string command = "dir ./objects > temp1.txt";
     system(command.c_str());
     ifstream file("temp1.txt");
     string line;
@@ -20,7 +20,7 @@ int main(int argc, char **argv){
     while(getline(file, line)) objects.push_back(line);
     file.close();
     // remove temp.txt
-    command = "rm temp1.txt";
+    command = "del temp1.txt";
     system(command.c_str());
     ObjLoader loader;
     // load the obj file
