@@ -11,22 +11,23 @@
 using namespace std;
 
 int main(int argc, char **argv){
-    // get all obj files in the folder
-    string command = "dir ./objects > temp1.txt";
+    // get all obj files in the folder if temp1 doesn't exist then create it
+    string command = "dir /b /s objects > temp1.txt";
     system(command.c_str());
     ifstream file("temp1.txt");
     string line;
-    vector<string> objects;
-    while(getline(file, line)) objects.push_back(line);
+    vector<string> objs;
+    while(getline(file, line)) objs.push_back(line);
+    cout << line;
     file.close();
     // remove temp.txt
     command = "del temp1.txt";
     system(command.c_str());
     ObjLoader loader;
     // load the obj file
-    char i = 0; 
+    int i = 0; 
     cin >> i;
-    string path = "./objects/" + objects[i];
+    string path = objs[i];
     std::vector<Double3> vertexPositions;
     std::vector<IdPair> edges;
     loader.LoadObjFile(path);
