@@ -41,6 +41,6 @@ for i in range(len(objs)):
 
 print(f"{passed}/{len(objs)} passed")
 print("Proposed score: ",passed/len(objs)*100)
-os.system("rm test.exe")
+os.system("del test.exe")
 if passed!=len(objs):
     print("You can find the wrong output files in the output folder")
