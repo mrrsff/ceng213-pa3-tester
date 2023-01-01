@@ -21,8 +21,8 @@ os.system(f"g++ -o {output_name} main.cpp")
 objs = get_objs()
 
 print("Cleaning up...")
-while(os.listdir("./output")):
-    for i in os.listdir("./output"):
+while(os.listdir(Path("./output"))):
+    for i in os.listdir(Path("./output")):
         os.remove(Path(f"./output/{i}"))
 
 print("Testing begins...")    
