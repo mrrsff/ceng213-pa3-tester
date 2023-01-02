@@ -1,1 +1,1 @@
-Put BinaryHeap.cpp and MeshGraph.cpp to "your_code" directory. Unzip the answer and obj files, don't forget to delete .zip files after you've unzipped them. Then run tester.py on powershell. Only works on Windows with g++ installed. 
+Put BinaryHeap.cpp and MeshGraph.cpp to "your_code" directory. Unzip the answer and obj files, don't forget to delete .zip files after you've unzipped them. Then run tester.py on powershell. Only works on Windows with g++ installed.
